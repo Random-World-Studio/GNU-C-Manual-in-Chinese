@@ -76,7 +76,8 @@ Cover art by J. Random Artist
 @contents
 
 *译者注：此翻译仅供参考，原文见仓库https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
-*欢迎各位联系pointer-to-bios@outlook.com以提出对本文翻译的意见和建议。
+*欢迎各位联系pointer-to-bios@@outlook.com以提出对本文翻译的意见和建议。
+*当译者无法完全理解原文表达的含义时，会列出原文。
 
 @node Top
 @ifnottex
@@ -110,43 +111,34 @@ language with the convenience of assembler language."，译者认为Stallman
 本手册描述了GNU编译器集支持的截至2017年左右的GNU C 语言。如有任何更改，请通知我们
 匹配当前版本的 GNU C。
 
-When a construct may be absent or work differently in other C
-compilers, we say so.  When it is not part of ISO standard C, we say
-it is a ``GNU C extension,'' because it is useful to know that.
-However, standards and other dialects are secondary topics for this
-manual.  For simplicity's sake, we keep those notes short, unless it
-is vital to say more.
+当一个功能不存在或在其他C编译器中不同时文中会有特殊标注，当一个功能不属于ISO C
+语言的时候，文中会有“GNU C扩展”的字样。然而C语言标准和其它的C语言方言不是此手册
+讨论的重点。为简单起见，在非必要时我们只对此作简短的说明。
 
-Likewise, we hardly mention C@t{++} or other languages that the GNU
-Compiler Collection supports.  We hope this manual will serve as a
-base for writing manuals for those languages, but languages so
-different can't share one common manual.
+同样地，我们也很少会提到GNU编译器集支持的C@t{++}等语言。我们希望本手册将成为其他
+语言手册的基础，但是不同的语言没法写进同一个手册中。
 
 Some aspects of the meaning of C programs depend on the target
 platform: which computer, and which operating system, the compiled
 code will run on.  Where this is the case, we say so.
 
-The C language provides no built-in facilities for performing such
-common operations as input/output, memory management, string
-manipulation, and the like.  Instead, these facilities are defined in
-a standard library, which is automatically available in every C
-program.  @xref{Top, The GNU C Library, , libc, The GNU C Library
+一些依赖目标平台的方面：哪种架构、哪种操作系统、编译好的代码的运行场景。我们在这种
+情况下这样说。
+
+C语言没有提供内建的实现如输入/输出、内存管理、字符串操作等类似功能，这些功能都定义
+在一个标准库中，这个标准库会自动包含在每个程序中。@xref{Top, The GNU C Library, , libc, The GNU C Library
 Reference Manual}.
 
-This manual incorporates the former GNU C Preprocessor Manual, which
-was among the earliest GNU Manuals.  It also uses some text from the
-earlier GNU C Manual that was written by Trevis Rothwell and James
-Youngman.
+本手册包含之前最早的GNU手册中的GNU C预处理器手册，它使用了Trevis Rothwell和
+James Youngman编写的文字
 
-GNU C has many obscure features, each one either for historical
-compatibility or meant for very special situations.  We have left them
-to a companion manual, the GNU C Obscurities Manual, which will be
-published digitally later.
+GNU C语言有许多模糊的特点，它们要么是为了保持向前兼容，要么是用于特殊情况。这些特性
+已被列入稍后将发布的《GNU C模糊手册(the GNU C Obscurities Manual)》。
 
-Please report errors and suggestions to c-manual@@gnu.org.
+请将错误和建议发送至c-manual@@gnu.org。
 
 @menu
-* The First Example::             Getting started with basic C code.
+* 第一个例子::             Getting started with basic C code.
 * Complete Program::              A whole example program
                                     that can be compiled and run.
 * Storage::                       Basic layout of storage; bytes.
@@ -474,12 +466,10 @@ Directing Compilation
 @end menu
 
 @node The First Example
-@chapter The First Example
+@chapter 第一个示例
 
-This chapter presents the source code for a very simple C program and
-uses it to explain a few features of the language.  If you already
-know the basic points of C presented in this chapter, you can skim it
-or skip it.
+此章节提供一个非常简单的C语言程序并且用于描述此语言的一些特点。如果你已经了解此章节
+展示的C语言代码，可以跳过。
 
 @menu
 * Recursive Fibonacci:: Writing a simple function recursively.
@@ -488,21 +478,20 @@ or skip it.
 @end menu
 
 @node Recursive Fibonacci
-@section Example: Recursive Fibonacci
-@cindex recursive Fibonacci function
-@cindex Fibonacci function, recursive
+@section 递归的斐波那契
+@cindex 递归斐波那契数列
+@cindex 斐波那契, 递归
 
-To introduce the most basic features of C, let's look at code for a
-simple mathematical function that does calculations on integers.  This
-function calculates the @var{n}th number in the Fibonacci series, in
-which each number is the sum of the previous two: 1, 1, 2, 3, 5, 8,
-13, 21, 34, 55, @dots{}.
+让我们看看一个简单的计算整数的数学函数，它展示了C语言的基本特点。此函数计算斐波那契
+数列的第n项。这是一个这样的数列：1, 1, 2, 3, 5, 8, 13, 21, 34, 55, @dots{}
 
+*译者注：本手册的示例代码都使用GNU C语言编码标准，GNU C编码标准里有很多特别的格式
+*比如返回类型与函数名写在两行上，两格缩进等。
 @example
 int
 fib (int n)
 @{
-  if (n <= 2)  /* @r{This avoids infinite recursion.}  */
+  if (n <= 2)  /* @r{递归中止条件，避免不断地递归下去}  */
     return 1;
   else
     return fib (n - 1) + fib (n - 2);
