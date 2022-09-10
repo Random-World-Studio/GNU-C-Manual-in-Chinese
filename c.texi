@@ -8,7 +8,7 @@
 @c move alignment later?
 
 @setfilename ./c
-@settitle GNU C Language Manual
+@settitle GNU C 语言手册 中文版
 @documentencoding UTF-8
 
 @synindex vr fn
@@ -35,15 +35,15 @@ modify this GNU manual.''
 
 @dircategory Programming
 @direntry
-* C: (c).       GNU C Language Intro and Reference Manual
+* C: (c).       GNU C 语言介绍及参考手册
 @end direntry
 
 @documentencoding UTF-8
 
 @titlepage
 @sp 6
-@center @titlefont{GNU C Language Introduction}
-@center @titlefont{and Reference Manual}
+@center @titlefont{GNU C 语言介绍}
+@center @titlefont{及参考手册}
 @sp 4
 @c @center @value{EDITION} Edition
 @sp 5
@@ -75,49 +75,40 @@ Cover art by J. Random Artist
 @summarycontents
 @contents
 
+*译者注：此翻译仅供参考，原文见仓库https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+*欢迎各位联系pointer-to-bios@outlook.com以提出对本文翻译的意见和建议。
 
 @node Top
 @ifnottex
-@top GNU C Manual
+@top GNU C 语言手册
 @end ifnottex
 @iftex
 @top Preface
 @end iftex
 
-This manual explains the C language for use with the GNU Compiler
-Collection (GCC) on the GNU/Linux system and other systems.  We refer
-to this dialect as GNU C.  If you already know C, you can use this as
-a reference manual.
+此手册描述了用于GNU/Linux和其它系统上的GNU编译器集（GCC）的C语言。我们把这个
+C语言的方言称为GNU C语言。如果你了解C语言，可以将本手册作为参考手册。
 
-If you understand basic concepts of programming but know nothing about
-C, you can read this manual sequentially from the beginning to learn
-the C language.
+如果你了解编程的基础概念但不了解C语言，你可以按顺序阅读来学习C语言。
 
-If you are a beginner to programming, we recommend you first learn a
-language with automatic garbage collection and no explicit pointers,
-rather than starting with C@.  Good choices include Lisp, Scheme,
-Python and Java.  C's explicit pointers mean that programmers must be
-careful to avoid certain kinds of errors.
+如果你是初学者，我们建议你先学一门自带垃圾回收并且没有指针概念的语言，而不是学
+C语言。Lisp、Scheme、Python和Java都是很好的选择。C语言有指针意味着程序员需要
+注意避免某些错误。
 
-C is a venerable language; it was first used in 1973.  The GNU C
-Compiler, which was subsequently extended into the GNU Compiler
-Collection, was first released in 1987.  Other important languages
-were designed based on C: once you know C, it gives you a useful base
-for learning C@t{++}, C#, Java, Scala, D, Go, and more.
+C是一个可敬的语言，它在1973年被首次使用，随后收进GNU编译器集的GNU C Compiler
+（GCC，译者注：GNU编译器集和GNU C语言编译器都简称GCC）于1987年首次发行。一些重
+要的语言是基于C语言设计的：只要你会了C，就有了学习C@t{++}、c#、Java、Dcala、D、
+Go语言的基础。
 
-The special advantage of C is that it is fairly simple while allowing
-close access to the computer's hardware, which previously required
-writing in assembler language to describe the individual machine
-instructions.  Some have called C a ``high-level assembler language''
-because of its explicit pointers and lack of automatic management of
-storage.  As one wag put it, ``C combines the power of assembler
-language with the convenience of assembler language.''  However, C is
-far more portable, and much easier to read and write, than assembler
-language.
+C语言的特殊优势是它相当简单，并且接近硬件，然而在以前需要用晦涩难懂的汇编语言来表
+示机器码。有人管C语言叫“高级汇编语言”，因为它有清晰的指针、缺少自动内存管理。正如
+一位？所说（原文为"As one wag put it"，译者没找到合适的意思。），“C语言结合了
+汇编语言的性能和高级语言的便捷性”（原文为"C combines the power of assembler
+language with the convenience of assembler language."，译者认为Stallman
+此处字打错了）。然而C语言远比汇编便捷，并且其阅读和编写更加简单。
 
-This manual describes the GNU C language supported by the GNU Compiler
-Collection, as of roughly 2017.  Please inform us of any changes
-needed to match the current version of GNU C.
+本手册描述了GNU编译器集支持的截至2017年左右的GNU C 语言。如有任何更改，请通知我们
+匹配当前版本的 GNU C。
 
 When a construct may be absent or work differently in other C
 compilers, we say so.  When it is not part of ISO standard C, we say
