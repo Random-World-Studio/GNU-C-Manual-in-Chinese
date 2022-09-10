@@ -485,8 +485,8 @@ Directing Compilation
 让我们看看一个简单的计算整数的数学函数，它展示了C语言的基本特点。此函数计算斐波那契
 数列的第n项。这是一个这样的数列：1, 1, 2, 3, 5, 8, 13, 21, 34, 55, @dots{}
 
-*译者注：本手册的示例代码都使用GNU C语言编码标准，GNU C编码标准里有很多特别的格式
-*比如返回类型与函数名写在两行上，两格缩进等。
+*译者注：本手册的示例代码都使用GNU C语言编码标准，GNU C编码标准里有很多特别的格式，
+比如返回类型与函数名写在两行上，两格缩进等。
 @example
 int
 fib (int n)
@@ -498,59 +498,47 @@ fib (int n)
 @}
 @end example
 
-This very simple program illustrates several features of C:
+这个非常简单的程序说明了C语言的几个特点：
 
 @itemize @bullet
 @item
-A function definition, whose first two lines constitute the function
-header.  @xref{Function Definitions}.
+一个函数定义：它的前两行构成了函数头。@xref{Function Definitions}.
 
 @item
-A function parameter @code{n}, referred to as the variable @code{n}
-inside the function body.  @xref{Function Parameter Variables}.
-A function definition uses parameters to refer to the argument
-values provided in a call to that function.
+参数@code{n}，是函数体中的变量。@xref{Function Parameter Variables}.
+函数使用参数来引用函数调用时传入的参数值。
 
 @item
-Arithmetic.  C programs add with @samp{+} and subtract with
-@samp{-}.  @xref{Arithmetic}.
+数学运算：C语言中加法用@samp{+}，减法用@samp{-}。@xref{Arithmetic}.
 
 @item
-Numeric comparisons.  The operator @samp{<=} tests for ``less than or
-equal.''  @xref{Numeric Comparisons}.
+数字比较：小于等于用操作符@samp{<=}表示。@xref{Numeric Comparisons}.
 
 @item
-Integer constants written in base 10.
+十进制整数常量。
 @xref{Integer Constants}.
 
 @item
-A function call.  The function call @code{fib (n - 1)} calls the
-function @code{fib}, passing as its argument the value @code{n - 1}.
+函数调用：@code{fib (n - 1)}调用了@code{fib}函数，传入参数值@code{n - 1}。
 @xref{Function Calls}.
 
 @item
-A comment, which starts with @samp{/*} and ends with @samp{*/}.  The
-comment has no effect on the execution of the program.  Its purpose is
-to provide explanations to people reading the source code.  Including
-comments in the code is tremendously important---they provide
-background information so others can understand the code more quickly.
-@xref{Comments}.
+注释：以@samp{/*}开头、以@samp{*/}结尾的注释，代码运行时注释无效；它的目的是给
+阅读代码的人解释代码内容，代码中写注释是非常有必要的——它提供代码的背景信息，能让别人
+更快地理解代码。@xref{Comments}.
 
 @item
-Two kinds of statements, the @code{return} statement and the
-@code{if}@dots{}@code{else} statement.  @xref{Statements}.
+两种语句：@code{return}语句和@code{if}@dots{}@code{else}语句。
+@xref{Statements}.
 
 @item
-Recursion.  The function @code{fib} calls itself; that is called a
-@dfn{recursive call}.  These are valid in C, and quite common.
+递归：函数@code{fib}调用其本身，这称为@dfn{递归调用}，这在C语言中可用，并且
+非常常见。
 
-The @code{fib} function would not be useful if it didn't return.
-Thus, recursive definitions, to be of any use, must avoid infinite
-recursion.
+如果函数@code{fib}没有return，那它就没有用了；因此，不管用于何处都应该避免
+无限递归。
 
-This function definition prevents infinite recursion by specially
-handling the case where @code{n} is two or less.  Thus the maximum
-depth of recursive calls is less than @code{n}.
+此函数定义通过特殊处理@code{n}等于或小于2的情况来防止无限递归。
 @end itemize
 
 @menu
