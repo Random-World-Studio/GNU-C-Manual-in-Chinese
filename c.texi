@@ -138,7 +138,7 @@ GNU C语言有许多模糊的特点，它们要么是为了保持向前兼容，
 请将错误和建议发送至c-manual@@gnu.org。
 
 @menu
-* 第一个例子::             Getting started with basic C code.
+* The First Example::             Getting started with basic C code.
 * Complete Program::              A whole example program
                                     that can be compiled and run.
 * Storage::                       Basic layout of storage; bytes.
