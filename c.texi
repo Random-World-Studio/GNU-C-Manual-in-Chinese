@@ -104,7 +104,7 @@ Go语言的基础。
 C语言的特殊优势是它相当简单，并且接近硬件，然而在以前需要用晦涩难懂的汇编语言来表
 示机器码。有人管C语言叫“高级汇编语言”，因为它有清晰的指针、缺少自动内存管理。正如
 一位？所说（原文为"As one wag put it"，译者没找到合适的意思。），“C语言结合了
-汇编语言的性能和高级语言的便捷性”（原文为"C combines the power of assembler
+汇编语言的性能和高级语言的便捷性”（译注：原文为"C combines the power of assembler
 language with the convenience of assembler language."，译者认为Stallman
 此处字打错了）。然而C语言远比汇编便捷，并且其阅读和编写更加简单。
 
@@ -126,8 +126,8 @@ code will run on.  Where this is the case, we say so.
 情况下这样说。
 
 C语言没有提供内建的实现如输入/输出、内存管理、字符串操作等类似功能，这些功能都定义
-在一个标准库中，这个标准库会自动包含在每个程序中。@xref{Top, The GNU C Library, , libc, The GNU C Library
-Reference Manual}.
+在一个标准库中，这个标准库会自动包含在每个程序中。
+@xref{Top, The GNU C Library, , libc, The GNU C Library Reference Manual}.
 
 本手册包含之前最早的GNU手册中的GNU C预处理器手册，它使用了Trevis Rothwell和
 James Youngman编写的文字
@@ -547,12 +547,10 @@ fib (int n)
 @end menu
 
 @node Function Header
-@subsection Function Header
-@cindex function header
+@subsection 函数头
+@cindex 函数,函数头
 
-In our example, the first two lines of the function definition are the
-@dfn{header}.  Its purpose is to state the function's name and say how
-it is called:
+在本示例中，函数的前两行称为@dfn{函数头}，它的作用是指定函数名并规定如何调用此函数：
 
 @example
 int
@@ -560,65 +558,53 @@ fib (int n)
 @end example
 
 @noindent
-says that the function returns an integer (type @code{int}), its name is
-@code{fib}, and it takes one argument named @code{n} which is also an
-integer.  (Data types will be explained later, in @ref{Primitive Types}.)
+此函数返回一个整数类型值（类型@code{int}），函数名是@code{fib}，并且它接收一个同样
+为整数类型名为@code{n}的参数。（数据类型将在稍后@ref{Primitive Types}章节中描述。）
 
 @node Function Body
-@subsection Function Body
-@cindex function body
-@cindex recursion
+@subsection 函数体
+@cindex 函数体，函数
+@cindex 递归
 
-The rest of the function definition is called the @dfn{function body}.
-Like every function body, this one starts with @samp{@{}, ends with
-@samp{@}}, and contains zero or more @dfn{statements} and
-@dfn{declarations}.  Statements specify actions to take, whereas
-declarations define names of variables, functions, and so on.  Each
-statement and each declaration ends with a semicolon (@samp{;}).
+函数剩余的部分称为@dfn{函数体}，就像所有的函数体一样，以@samp{@{}开头，以
+@samp{@}}结尾，并且可以包括0个或多个@dfn{语句}和@dfn{声明}；@dfn{语句}指定代码
+执行的操作，@dfn{声明}定义变量、函数等；每个@dfn{语句}和@dfn{声明}都以一个分号
+（@samp{;}）结尾。
 
-Statements and declarations often contain @dfn{expressions}; an
-expression is a construct whose execution produces a @dfn{value} of
-some data type, but may also take actions through ``side effects''
-that alter subsequent execution.  A statement, by contrast, does not
-have a value; it affects further execution of the program only through
-the actions it takes.
+语句和声明通常包含@dfn{表达式}，一个表达式是能够得出@dfn{值}的结构，但是它也通过条件
+和循环语句决定后续语句如何执行（纯意译，原文为"but may also take actions through
+'side effects' that alter subsequent execution."）。相比来说，语句不代表值，它
+只通过执行操作来改变程序的执行。
 
-This function body contains no declarations, and just one statement,
-but that one is a complex statement in that it contains nested
-statements.  This function uses two kinds of statements:
+此函数体不包含声明，只有一个语句，但是它是一个带有嵌套语句的复杂语句，此函数使用了如下
+两种语句：
 
 @table @code
 @item return
-The @code{return} statement makes the function return immediately.
-It looks like this:
+@code{返回(return)}语句使函数立刻返回，它看起来是这样：
 
 @example
 return @var{value};
 @end example
 
-Its meaning is to compute the expression @var{value} and exit the
-function, making it return whatever value that expression produced.
-For instance,
+它的含义是先计算表达式的值@var{value}并退出此函数，无论表达式代表什么值都返回。例如：
 
 @example
 return 1;
 @end example
 
 @noindent
-returns the integer 1 from the function, and
+它从函数返回整数1，
 
 @example
 return fib (n - 1) + fib (n - 2);
 @end example
 
 @noindent
-returns a value computed by performing two function calls
-as specified and adding their results.
+它返回两个函数返回值之和。
 
-@item @code{if}@dots{}@code{else}
-The @code{if}@dots{}@code{else} statement is a @dfn{conditional}.
-Each time it executes, it chooses one of its two substatements to execute
-and ignores the other.  It looks like this:
+@code{if}@dots{}@code{else}语句是一个@dfn{条件语句}，每当它执行时，它选择其中一个
+分支运行，并忽略其它分支，它看起来是这样：
 
 @example
 if (@var{condition})
