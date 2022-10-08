@@ -613,8 +613,8 @@ else
   @var{if-false-statement}
 @end example
 
-Its meaning is to compute the expression @var{condition} and, if it's
-``true,'' execute @var{if-true-statement}.  Otherwise, execute
+此代码的含义是：计算@var{condition}的值， 若值为“true”运行@var{if-true-statement}语句，
+Otherwise, execute
 @var{if-false-statement}.  @xref{if-else Statement}.
 
 Inside the @code{if}@dots{}@code{else} statement, @var{condition} is
